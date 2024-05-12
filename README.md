@@ -54,7 +54,7 @@ $> source env/bin/activate                       # for bash
 ```
 
 ### Downloading Dataset
-Download the dataset available on [Zenodo](https://doi.org/zenodo/10.5281/zenodo.11179900). Unzip the compressed the file in the current directory. Once done there should be a `video/` directory having all the necessary pre-processed dataset to reproduce the results.
+Download the dataset available on [Zenodo](https://doi.org/zenodo/10.5281/zenodo.11179900). Unzip the compressed the file in the current directory. Once done there should be a `videos/` directory having all the necessary pre-processed dataset to reproduce the results.
 
 ### Running TileClipper on a sample video
 TileClipper operates on tiled videos. The `videos/` folder contains a `TestDataset/` folder with a sample video to validate TileClipper. Run TileClipper as:
