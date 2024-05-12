@@ -71,8 +71,8 @@ $> python3 src/calibrate.py --tiled-video-dir videos/dataset/tiled_4x4_mp4/video
 It'll create an `F2s/` folder inside `assets/` having the pickle files with the video name. It assumes the tile level ground truths are there in `assets/GroundTruths_TileLevel/` folder. These ground truths can be generated using the files in `src/GT/`. The steps are in a separate [README](src/GT/README.md).
 
 ### Reproducing results
-To quickly reproduce the results, the necessary groundtruths, labels, and processed files already placed inside the `videos/` and `baselines/` folders.
-Utilize the `src/get_results.ipynb` notebook file to generate the plots. Note this notebook file must be run locally not on Google Colab as it parses the dataset to generate results. `get_results.ipynb` file can be run inside VS Code IDE or inside Jupyter Notebook.
+To quickly reproduce the results, the necessary groundtruths, labels, and processed files are already placed inside the `videos/` and `baselines/` folders.
+Utilize the `src/get_results.ipynb` notebook file to generate the plots. Note this notebook file must be run locally not on Google Colab as it parses the dataset to generate results. `get_results.ipynb` file can be run inside VS Code IDE or Jupyter Notebook.
 
 ## Experiments
 
