@@ -1,0 +1,7 @@
+__pycache__
+*.pt
+.ipynb_checkpoints
+runs
+utils/aggrMp4/
+assets/Paper
+videos
