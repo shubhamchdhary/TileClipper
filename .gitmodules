@@ -1,3 +1,6 @@
 [submodule "src/GT/StrongSORTYOLO"]
 	path = src/GT/StrongSORTYOLO
 	url = https://github.com/bharath5673/StrongSORT-YOLO
+[submodule "baselines/CloudSeg/CARN"]
+	path = baselines/CloudSeg/CARN
+	url = https://github.com/nmhkahn/CARN-pytorch
