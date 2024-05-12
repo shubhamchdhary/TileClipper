@@ -1,4 +1,10 @@
-# Folders
+# TileClipper
+## Introduction
+This repository contains codes/artifacts for the paper "TileClipper: Lightweight Selection of Regions of Interest from Videos forTraffic Surveillance". TileClipper is a system that utilizes tile sampling to substantially reduce bandwidth consumption by selecting spatial regions (tiles) of interest for further analysis at the server. 
+
+## Getting Started
+
+### Folders
 ```
 └── assets : Has resources such as GroundTruth, Bitrates, Plots etc.
 |   ├── Bitrates
@@ -13,7 +19,7 @@
 |   ├── labels
 |   ├── rates.pkl
 |
-└── extras: Has additional codes used. 
+└── baselines: Has codes for the baselines. 
 |              
 └── src: This contains all the codes for TileClipper.         
 |   ├── GT: Codes to generate tilelevel ground truth for calibration using Yolov5 and StrongSORT.
@@ -34,19 +40,43 @@
 └── utils: Has addon scripts and codes.    
 ```
 
-# Running TileClipper on a video
-First of all the video need to be segmented (0.5s at 30fps). And should have 16 tiles (4x4). Use scipt.py for this as `python3 script.py --path-to-mp4 dataset/ --tiles 4x4 --res 1280x720`.
+### Dependencies
+The codebase uses FFmepg, GPAC, and Kvazaar for encoding/manipulating a tiled videos. FFmpeg can be directly installed using `sudo apt install ffmpeg` command. However, [Kvazaar](https://github.com/ultravideo/kvazaar) and [GPAC](https://github.com/gpac/gpac/wiki/GPAC-Build-Guide-for-Linux) requires building. Follow the build instructions in their respective repositories. For GPAC, go with a full GPAC build, not the minimal one.
 
-Once we have the tiled segmented videos in `tile_4x4_mp4` folder (script.py creates it). Run TileClipper as:
+### Downloading Dataset
+Download the dataset available on [Zenodo](https://doi.org/zenodo/10.5281/zenodo.11179900). Unzip the compressed the file in the current directory. Once done there should be a `video/` having all the necessary pre-processed dataset to reproduce the results.
 
-```
-python3 tileClipper.py --tiled-video-dir tiled_4x4_mp4/video_name --percentile-array-filename video_percentile_cluster.pkl --cluster-indices-file video_cluster_index_file.pkl --gamma 1.75
+### Creating Python Environment
+```bash
+$> git clone https://github.com/shubhamchdhary/TileClipper.git
+$> cd TileClipper
+$> pip3 install virtualenv                  
+$> python3 -m virtualenv env
+$> source env/bin/activate                       # for bash
+(env) $> pip3 install -r src/requirements.txt    # installs python libraries
 ```
 
-The percentile and cluster files are generated using calibration.
-Use calibrate.py to get this as:
+### Running TileClipper on a sample video
+TileClipper operates on tiled videos. The `videos/` folder contains a `TestDataset/` folder with a sample video to validate TileClipper. Run TileClipper as:
+
+```bash
+$> python3 src/tileClipper.py --tiled-video-dir videos/TestDataset/tiled_4x4_mp4/AITr1cam10 --percentile-array-filename assets/F2s/f2s_AITr1cam10_cluster10.pkl  --cluster-indices-file assets/F2s/AITr1cam10_cluster_indices.pkl --gamma 1.75
 ```
-python3 calibrate.py --tiled-video-dir tiled_4x4_mp4/video_name --assets-folder path_to_asset_folder
+Once run, you'll find a `removedTileMp4/` folder inside `videos/TestDataset/` directory. It contains the segmented tiled video with pruned tiles. You can play these using GPAC as `gpac -play video.mp4`. Other video players like VLC cannot decode tiled videos.
+
+Note that the above execution assumes that the calibration is already done to get the percentile and cluster files. To run calibration on a video use `calibrate.py` as:
+```bash
+$> python3 src/calibrate.py --tiled-video-dir videos/dataset/tiled_4x4_mp4/video_name --assets-folder assets/
 ```
-It'll create an `F2s/` folder having the pickle files with the video name. It assumes the tile level ground truths are there in `assets/GroundTruths_TileLevel/` folder. These ground truths can be generated using the files in `src/GT/`. The steps are in a separate README in that folder.
+It'll create an `F2s/` folder inside `assets/` having the pickle files with the video name. It assumes the tile level ground truths are there in `assets/GroundTruths_TileLevel/` folder. These ground truths can be generated using the files in `src/GT/`. The steps are in a separate [README](src/GT/README.md).
+
+### Reproducing results
+To quickly reproduce the results, the necessary groundtruths, labels, and processed files already placed inside the `videos/` and `baselines/` folders.
+Utilize the `src/get_results.ipynb` notebook file to generate the plots. Note this notebook file must be run locally not on Google Colab as it parses the dataset to generate results. `get_results.ipynb` file can be run inside VS Code IDE or inside Jupyter Notebook.
+
+## Experiments
+
+First of all the video need to be segmented (0.5s at 30fps). And should have 16 tiles (4x4). Use script.py for this as `python3 script.py --path-to-mp4 dataset/ --tiles 4x4 --res 1280x720`.
+
+Once we have the tiled segmented videos in `tile_4x4_mp4` folder (script.py creates it).
 
