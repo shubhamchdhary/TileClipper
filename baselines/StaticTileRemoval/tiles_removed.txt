@@ -1,0 +1,66 @@
+Removal tiles of Videos
+
+For DETRAC:::::::::::::::::::::::::::::::::::
+39761 => 3, 5
+39781 => No Tiles
+40191 => No Tiles
+40192 => No Tiles
+40211 => 3
+40212 => 3
+40213 => 3, 4
+40241 => No Tiles
+40732 => 3, 4, 5
+40752 => No Tiles
+40871 => No Tiles
+40962 => No Tiles
+40963 => No Tiles
+40981 => No Tiles
+40991 => 4, 5, 9, 10, 11, 14, 15, 16
+40992 => 4, 5, 9, 10, 11, 14, 15, 16
+41063 => 4, 5
+41073 => No Tiles
+63521 => No Tiles
+63554 => 4, 5
+
+For Indian Videos:::::::::::::::::::::::::::
+Day2_5min => No Tiles
+Day3_5min => No Tiles
+Night1_5min => No Tiles
+Night2_5min => No Tiles
+
+For AINormal::::::::::::::::::::::::::::::::
+AITr1cam8 => 14
+AITr1cam10 => No Tiles
+AITr1cam13 => 3, 4, 5
+AITr1cam14_2560 => 3, 4, 5, 6, 7, 8, 9
+AITr1cam15 => 4, 5, 10, 14, 15, 16
+AITr1cam16 => 5, 9
+AITr1cam17 => 5, 6, 10, 14
+AITr5S1C1 => 3, 5
+AITr5S1C2 => 5
+AITr5S1C3 => 5
+AITr5S1C4 => 5
+AITr5S3C10 => 5, 9
+AITr5S3C14 => 5, 6
+AITr5S3C15 => 4, 5, 8, 9
+
+For AIConditions::::::::::::::::::::::::::::
+AITr1cam6n => 4, 5
+AITr1cam6s => 4, 5
+cam_1 => 3, 14, 15, 16, 17
+cam_1_dawn => 3, 14, 15, 16, 17
+cam_1_rain => 3, 14, 15, 16, 17
+cam_4 => No Tiles
+cam_4_dawn => No Tiles
+cam_4_rain => No Tiles
+cam_5 => No Tiles
+cam_5_dawn => No Tiles
+cam_5_rain => No Tiles
+cam_7 => 3, 6, 17
+cam_7_dawn => 3, 6, 17
+cam_7_rain => 3, 6, 17
+
+For OurRec:::::::::::::::::::::::::::::::
+S1 => 5, 9
+S2 => 5, 9
+S3 => No Tiles
