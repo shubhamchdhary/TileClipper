@@ -46,6 +46,7 @@ The codebase uses FFmepg, GPAC, and Kvazaar for encoding/manipulating a tiled vi
 ### Creating Python Environment
 ```bash
 $> git clone https://github.com/shubhamchdhary/TileClipper.git
+$> git submodule update --init --recursive
 $> cd TileClipper
 $> pip3 install virtualenv                  
 $> python3 -m virtualenv env
@@ -80,3 +81,5 @@ First of all the video need to be segmented (0.5s at 30fps). And should have 16 
 
 Once we have the tiled segmented videos in `tile_4x4_mp4` folder (script.py creates it).
 
+### Baselines
+Follow this [README](baselines/README.md).
