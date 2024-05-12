@@ -16,4 +16,4 @@ def encode(path_for_frames, path_for_vid_segs):
 
 
 #call encode(path_to_frames, path_to_store_segments)
-encode("AITr1cam6n_mean_90/frames", "AITr1cam6n_mean_90/outputVideo")
+encode("AITr1cam6n/frames", "AITr1cam6n/outputVideo")

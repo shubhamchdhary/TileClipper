@@ -451,4 +451,4 @@ def driver(pathVid, pathYolo, accPassed,  pathForRes, saveSegements):
  
 # call driver with the arguments given below
 # # video path, yolo label path, acc for thresh, path to result folder, saveSegment
-driver('AITr1cam6normal.mp4', 'AITr1cam6n.txt', 0.9, 'AITr1cam6n_mean_90', True)
+driver('AITr1cam6normal.mp4', 'AITr1cam6n.txt', 0.9, 'AITr1cam6n', True)
