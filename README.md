@@ -43,9 +43,6 @@ This repository contains codes/artifacts for the paper "TileClipper: Lightweight
 ### Dependencies
 The codebase uses FFmepg, GPAC, and Kvazaar for encoding/manipulating a tiled videos. Install FFmpeg using `sudo apt install ffmpeg` command. [Kvazaar](https://github.com/ultravideo/kvazaar) and [GPAC](https://github.com/gpac/gpac/wiki/GPAC-Build-Guide-for-Linux) requires building. Follow the build instructions in their respective repositories. For GPAC, go with a full GPAC build, not the minimal one.
 
-### Downloading Dataset
-Download the dataset available on [Zenodo](https://doi.org/zenodo/10.5281/zenodo.11179900). Unzip the compressed the file in the current directory. Once done there should be a `video/` having all the necessary pre-processed dataset to reproduce the results.
-
 ### Creating Python Environment
 ```bash
 $> git clone https://github.com/shubhamchdhary/TileClipper.git
@@ -55,6 +52,9 @@ $> python3 -m virtualenv env
 $> source env/bin/activate                       # for bash
 (env) $> pip3 install -r src/requirements.txt    # installs python libraries
 ```
+
+### Downloading Dataset
+Download the dataset available on [Zenodo](https://doi.org/zenodo/10.5281/zenodo.11179900). Unzip the compressed the file in the current directory. Once done there should be a `video/` directory having all the necessary pre-processed dataset to reproduce the results.
 
 ### Running TileClipper on a sample video
 TileClipper operates on tiled videos. The `videos/` folder contains a `TestDataset/` folder with a sample video to validate TileClipper. Run TileClipper as:
