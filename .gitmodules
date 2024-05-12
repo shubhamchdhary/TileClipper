@@ -1,0 +1,3 @@
+[submodule "src/GT/StrongSORTYOLO"]
+	path = src/GT/StrongSORTYOLO
+	url = https://github.com/bharath5673/StrongSORT-YOLO
