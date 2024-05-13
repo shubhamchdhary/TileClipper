@@ -71,13 +71,13 @@ Download the dataset (.zip file approximately 38G) available on [Zenodo](https:/
 TileClipper operates on tiled videos. The `videos/` folder contains a `TestDataset/` folder with a sample video to validate TileClipper. Run TileClipper on it as:
 
 ```bash
-$> python3 src/tileClipper.py --tiled-video-dir videos/TestDataset/tiled_4x4_mp4/AITr1cam10 --percentile-array-filename assets/F2s/f2s_AITr1cam10_cluster10.pkl  --cluster-indices-file assets/F2s/AITr1cam10_cluster_indices.pkl --gamma 1.75
+(env) $> python3 src/tileClipper.py --tiled-video-dir videos/TestDataset/tiled_4x4_mp4/AITr1cam10 --percentile-array-filename assets/F2s/f2s_AITr1cam10_cluster10.pkl  --cluster-indices-file assets/F2s/AITr1cam10_cluster_indices.pkl --gamma 1.75
 ```
 Once run, you'll find a `removedTileMp4/` folder inside `videos/TestDataset/` directory. It contains the segmented tiled video with pruned tiles. You can play these using GPAC as `gpac -play video.mp4`. Other video players like VLC cannot decode tiled videos.
 
 Note that the above execution assumes that the calibration is already done to get the percentile and cluster files. To run calibration on a video use `calibrate.py` as:
 ```bash
-$> python3 src/calibrate.py --tiled-video-dir videos/dataset/tiled_4x4_mp4/video_name --assets-folder assets/
+(env) $> python3 src/calibrate.py --tiled-video-dir videos/dataset/tiled_4x4_mp4/video_name --assets-folder assets/
 ```
 It'll create an `F2s/` folder inside `assets/` having the pickle files with the video name. It assumes the tile level ground truths are there in `assets/GroundTruths_TileLevel/` folder. These ground truths can be generated using the files in `src/GT/`. The steps are in a separate [README](src/GT/README.md).
 
@@ -85,11 +85,59 @@ It'll create an `F2s/` folder inside `assets/` having the pickle files with the 
 To quickly reproduce the results, the necessary groundtruths, labels, and processed files are already placed inside the `videos/` and `baselines/` folders.
 Utilize the `src/get_results.ipynb` notebook file to generate the plots. Note this notebook file must be run locally not on Google Colab as it parses the dataset to generate results. `get_results.ipynb` file can be run inside VS Code IDE or Jupyter Notebook.
 
-## Experiments
+## Running Experiments
+Caveat: Running the experiments below overwrites the files inside `videos/`. 
 
-First of all the video need to be segmented (0.5s at 30fps). And should have 16 tiles (4x4). Use script.py for this as `python3 script.py --path-to-mp4 dataset/ --tiles 4x4 --res 1280x720`.
+### 1) Tile Encoding
+TileClipper operates on tiled videos. Kvazaar and GPAC are two open-source tools available for research purposes to encode videos with tiles. We provide `utils/script.py` to automate the encoding process.
 
-Once we have the tiled segmented videos in `tile_4x4_mp4` folder (script.py creates it).
+Use `script.py` to encode a video as:
 
-### Running Baselines
+```bash
+(env) $> python3 script.py --path-to-mp4 dataset/ --tiles 4x4 --res 1280x720
+```
+This will generate tiled segmented videos inside `tile_4x4_mp4/` folder within each dataset. Encoding is a time consuming process and requires large space because it extracts raw videos. We've provided the tile encoded vidoes in `videos/` to save time.
+
+### 2) Running TileClipper
+#### a) Calibration 
+To get calibrated outputs to run TileClipper on all videos, use:
+```bash
+(env) $> python3 runCalibrateOnAllVideos.py
+```
+This will generate the percentile and cluster files inside `assets/F2s` folder.
+
+#### b) Tile Filtering
+Run the script below to start tile filtering.
+```bash
+(env) $> python3 runTileClipperOnAllVideos.py
+```
+The output video with pruned tiles are generated inside `removedTileMp4/` folder inside each dataset directory.
+
+### 3) Generating Labels 
+#### a) Tile Aggregation
+Since Yolov5 cannot decode tiled videos, all the videos should be pre-processed to get normal videos by merging their tiles (called tile aggregation). We've provided the required code in `utils/utils.py`.
+
+To aggreagate tiles of all videos of TileClipper, use:
+```bash
+(env) $> cd utils
+(env) $> python3 aggrTiles.py
+```
+This will create a `aggrMp4/` folder in the current directory containing all the videos. We've already generated this directory and kept inside `videos/`.
+
+#### b) Running Yolov5
+We've modified the Yolov5s code (`src/detect_for_groundtruth.py`) to generate labels and groundtruths for large-scale evaluations. To run it on a video, use:
+```bash
+(env) $> python3 detect_for_groundtruth.py --source videos/dataset/segmentedVideoFolder --save-txt --save-labelfile-name labelFileName.txt --classes 0 1 2 3 4 5 6 7
+```
+This will create a folder `labels` with `labelFileName.txt` in the current directory.
+
+Generating labels for all videos.
+```bash
+(env) $> cd src/scripts
+(env) $> python3 generateLabelsForAll.py    # outputs inside ./labels/
+```
+
+
+### 4) Running Baselines
 Follow this [README](baselines/README.md).
+
