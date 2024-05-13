@@ -48,13 +48,13 @@ This repository contains codes/artifacts for the paper "TileClipper: Lightweight
 ```
 
 ### 2) Dependencies
-The codebase uses FFmepg (v4.2.7), GPAC (v2.2.1), and Kvazaar (v2.0.0) for encoding/manipulating a tiled videos. Install FFmpeg using `sudo apt install ffmpeg` command. [Kvazaar](https://github.com/ultravideo/kvazaar) and [GPAC](https://github.com/gpac/gpac/wiki/GPAC-Build-Guide-for-Linux) requires building. Follow the build instructions in their respective repositories. For GPAC, go with a full GPAC build, not the minimal one.
+All the experiments are designed and tested on Ubuntu 20.04 LTS. Use the same OS to reproduce results. For a differnt Linux distribution, change the commands accordingly. The codebase uses FFmepg (v4.2.7), GPAC (v2.2.1), and Kvazaar (v2.0.0) for encoding/manipulating a tiled videos. Install FFmpeg using `sudo apt install ffmpeg` command. [Kvazaar](https://github.com/ultravideo/kvazaar) and [GPAC](https://github.com/gpac/gpac/wiki/GPAC-Build-Guide-for-Linux) requires building. Follow the build instructions in their respective repositories. For GPAC, go with a full GPAC build, not the minimal one. Unless otherwise stated, we use Python 3.8 for all the experiments.
 
 ### 3) Creating Python Environment
 ```bash
 $> git clone https://github.com/shubhamchdhary/TileClipper.git
-$> git submodule update --init --recursive
 $> cd TileClipper
+$> git submodule update --init --recursive
 $> pip3 install virtualenv                  
 $> python3 -m virtualenv env
 $> source env/bin/activate                       # for bash
@@ -62,10 +62,10 @@ $> source env/bin/activate                       # for bash
 ```
 
 ### 4) Downloading Dataset
-Download the dataset available on [Zenodo](https://doi.org/zenodo/10.5281/zenodo.11179900). Unzip the compressed the file in the current directory. Once done there should be a `videos/` directory having all the necessary pre-processed dataset to reproduce the results.
+Download the dataset (.zip file approximately 38G) available on [Zenodo](https://doi.org/zenodo/10.5281/zenodo.11179900). Unzip the compressed the file in the current directory. Once done there should be a `videos/` directory having all the necessary pre-processed dataset to reproduce the results. The extracted folder contains the videos from AICC, DETRAC, and OurRec datasets. Due to privacy concerns we have not made the Others and Live Deployment videos public. For evaluation on these videos, we've provided serialized pickle files with video filesizes.
 
 ### 5) Running TileClipper on a sample video
-TileClipper operates on tiled videos. The `videos/` folder contains a `TestDataset/` folder with a sample video to validate TileClipper. Run TileClipper as:
+TileClipper operates on tiled videos. The `videos/` folder contains a `TestDataset/` folder with a sample video to validate TileClipper. Run TileClipper on it as:
 
 ```bash
 $> python3 src/tileClipper.py --tiled-video-dir videos/TestDataset/tiled_4x4_mp4/AITr1cam10 --percentile-array-filename assets/F2s/f2s_AITr1cam10_cluster10.pkl  --cluster-indices-file assets/F2s/AITr1cam10_cluster_indices.pkl --gamma 1.75
@@ -88,5 +88,5 @@ First of all the video need to be segmented (0.5s at 30fps). And should have 16 
 
 Once we have the tiled segmented videos in `tile_4x4_mp4` folder (script.py creates it).
 
-### Baselines
+### Running Baselines
 Follow this [README](baselines/README.md).

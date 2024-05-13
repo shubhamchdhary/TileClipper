@@ -8,9 +8,9 @@ Assuming you have a freshly created python (>= Python3.8 tested with v3.8.18) en
 (env)src/GT/StrongSORTYOLO$> pip install -r requirements.txt
 ```
 
-After this, unzip the `ffmpeg_lib.zip` file and copy the two folders in the unzipped folder into your `env/lib/python3x.x/site-packages/` path. This requires FFmpeg to run. Therefore, install it if you don't have using 
+After this, unzip the `ffmpeg_lib.zip` file and copy the two folders in the unzipped folder into your `env/lib/python3x.x/site-packages/` path. This requires FFmpeg (v4.2.7) to run. Therefore, install it if you don't have using 
 ```bash
-$> sudo apt install ffmpeg
+$> sudo apt install ffmpeg=4.2.7
 ```
 
 If things go well. You'll have Yolov5 based StrongSORT code running. To generate the ground truth use

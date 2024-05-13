@@ -2,7 +2,7 @@
 ## StaticTileRemoval (STR)
 To run STR on a video use: 
 ``` bash
-$> python staticTileRemoval.py --input-seg-folder videos/dataset/tiled_4x4_mp4/video_name --tiles-to-remove 3 4 5 6
+$> python3 staticTileRemoval.py --input-seg-folder videos/dataset/tiled_4x4_mp4/video_name --tiles-to-remove 3 4 5 6
 ```
 Note that the provided tiles to remove should be from 3 to 17. Tile indexing in GPAC starts with 2, so 16 tiles will have indices from 2 to 17. Tile 2 should not be removed as it contains the necessary offset for decoding other tiles.
 
