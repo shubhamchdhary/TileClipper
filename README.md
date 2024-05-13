@@ -1,7 +1,7 @@
 # TileClipper
 ## Introduction
 This repository contains codes/artifacts for the paper "TileClipper: Lightweight Selection of Regions of Interest from Videos forTraffic Surveillance". TileClipper is a system that utilizes tile sampling to substantially reduce bandwidth consumption by selecting spatial regions (tiles) of interest for further analysis at the server. 
-![Before Tile Pruning](assets/UnremovedTileFrameSnip.pdf) | ![After Tile Pruning](assets/tileRemovedFrameSnip1.pdf)
+![Before Tile Pruning](assets/UnremovedTileFrameSnip.png) | ![After Tile Pruning](assets/tileRemovedFrameSnip1.png)
 :--:| :--:
 **Before Tile Pruning**| **After Tile Pruning**
 
