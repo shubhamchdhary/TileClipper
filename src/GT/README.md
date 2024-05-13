@@ -23,5 +23,5 @@ Running on an example video
 ```bash
 (env) src/GT/StrongSORTYOLO$> python detectTiles_StrongSORT.py  --source ../../../videos/DETRAC/Untiled_mp4_30qp/MVI_39761 --save-txt --tiled-video ../../../videos/DETRAC/tiled_4x4_mp4/MVI_39761/output0000_tiled.mp4 --classes 0 1 2 3 4 5 6 7 --save-labelfolder-name ./ --yolo-weight weights/yolov5x.pt
 ```
-It requires GPU for faster inference. We already run StrongSORT-YOLO on all the videos. The outputs are provided in the `assets/GroundTruths_TileLevel` folder.
+It requires GPU (with CUDA) for faster inference. We already run StrongSORT-YOLO on all the videos. The outputs are provided in the `assets/GroundTruths_TileLevel` folder.
 

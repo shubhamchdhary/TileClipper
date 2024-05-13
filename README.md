@@ -99,7 +99,10 @@ Use `script.py` to encode a video as:
 ```
 This will generate segmented tiled videos inside `tile_4x4_mp4/` folder within the dataset folder. Encoding is a time consuming process and requires large space because it extracts raw videos. We've provided the tile encoded vidoes in `videos/` to save time.
 
-### 2) Running TileClipper
+### 2) Generating Tile-level Groundtruths
+For calibration, we require groundtruths (GT) which specifies the tiles with relevant objects. We use StrongSORT-Yolo to generate these GTs. The instructions are in this [README](src/GT/README.md).
+
+### 3) Running TileClipper
 #### a) Calibration 
 To get calibrated outputs to run TileClipper on all videos, use:
 ```bash
@@ -114,7 +117,7 @@ Run the script below to start tile filtering.
 ```
 The output video with pruned tiles are generated inside `removedTileMp4/` folder inside each dataset directory.
 
-### 3) Generating Labels 
+### 4) Generating Labels 
 #### a) Tile Aggregation
 Since Yolov5 cannot decode tiled videos, all the videos should be pre-processed to get normal videos by merging their tiles (called tile aggregation). We've provided the required code in `utils/utils.py`.
 
@@ -138,7 +141,6 @@ Generating labels for all videos.
 (env) $> python3 generateLabelsForAll.py    # outputs inside ./labels/
 ```
 
-
-### 4) Running Baselines
+### 5) Running Baselines
 Follow this [README](baselines/README.md).
 

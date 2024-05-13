@@ -21,4 +21,4 @@ Execute `run_cloudSeg.sh` to let CloudSeg run on all dataset videos.
 Use `python3 reducto.py` to run Reducto on a sample video. It will create a folder having the video name which contains the relevant frames inside `frames/` folder. Run `python3 encoder.py` to generate videos from these frames. Change the video name inside the `driver()` function in the `reducto.py` and `encoder.py` to run on different videos. We've already run it on all of the videos of all our datasets and provided a [Sheet](Reducto/Reducto-results.xlsx) with the results. 
 
 ## DDS
-We've provided the output results of DDS in different sheets inside the `DDS` directory. 
+For the first phase of DDS we just the the `detect_for_groundtruth.py`. We send the objects having low confidence score, in the second phase We've provided the output results of DDS in different sheets inside the `DDS/` directory. 
