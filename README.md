@@ -33,6 +33,7 @@ This repository contains codes/artifacts for the paper "TileClipper: Lightweight
 |              
 └── src        
 |   ├── GT                          : StrongSORT-Yolo codebase
+|   ├── scripts                     : Scripts to run TileClipper
 |   ├── calibrate.py                : For TileClipper calibration
 |   ├── capture.sh                  : Live tiled video encoding from camera 
 |   ├── detect_for_groundtruth.py   : Generate labels/GT using  Yolov5x
