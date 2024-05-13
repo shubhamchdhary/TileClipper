@@ -97,7 +97,7 @@ Use `script.py` to encode a video as:
 ```bash
 (env) $> python3 script.py --path-to-mp4 dataset/ --tiles 4x4 --res 1280x720
 ```
-This will generate tiled segmented videos inside `tile_4x4_mp4/` folder within each dataset. Encoding is a time consuming process and requires large space because it extracts raw videos. We've provided the tile encoded vidoes in `videos/` to save time.
+This will generate segmented tiled videos inside `tile_4x4_mp4/` folder within the dataset folder. Encoding is a time consuming process and requires large space because it extracts raw videos. We've provided the tile encoded vidoes in `videos/` to save time.
 
 ### 2) Running TileClipper
 #### a) Calibration 
