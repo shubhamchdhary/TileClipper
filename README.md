@@ -9,38 +9,42 @@ This repository contains codes/artifacts for the paper "TileClipper: Lightweight
 
 ### 1) Directory Structure
 ```
-└── assets : Has resources such as GroundTruth, Bitrates, Plots etc.
-|   ├── Bitrates
-|   ├── F2s
-|   ├── GroundTruths
-|   ├── GroundTruths_TileLevel
-|   ├── Plots
-|   ├── Runtimes
+└── assets 
+|   ├── Bitrates                    : Bitrates of all videos
+|   ├── F2s                         : Calibrated outputs
+|   ├── GroundTruths                : Yolov5x Groundtruths
+|   ├── GroundTruths_TileLevel      : StrongSORT-Yolo groundtruths for calibration
+|   ├── Runtimes                    : Speed (fps) pickle files 
 |   |   ├── On Nano
 |   |   ├── On RPi4
 |   |
-|   ├── labels
-|   ├── rates.pkl
+|   ├── labels                      : Labels to calculate accuracy
+|   ├── rates.pkl                   
+|   ├── ratios.pkl                   
+|   ├── UnremovedTileFrameSnip.png               
+|   ├── tileRemovedFrameSnip1.png                  
 |
-└── baselines: Has codes for the baselines. 
+└── baselines
+|   ├── CloudSeg                    : CloudSeg codes
+|   ├── DDS                         : DDS artifacts
+|   ├── Reducto                     : Reducto implementation
+|   ├── StaticTileRemoval           : STR codes
+|   ├── README.md                   
 |              
-└── src: This contains all the codes for TileClipper.         
-|   ├── GT: Codes to generate tilelevel ground truth for calibration using Yolov5 and StrongSORT.
-|   ├── generateLabelsForAll.py: Generate groundtruth for performance metric using Yolov5
-|   ├── runCalibrateOnAllVideos.py: Runs calibration on all videos
-|   ├── runTileClipperOnAllVideos.py: Runs TileClipper on all videos
-|   ├── calibrate.py
-|   ├── capture.sh
-|   ├── detect_for_groundtruth.py
-|   ├── get_results.ipynb: Generates all plots.
-|   ├── main_feed_from_camera.py: Not used now. Need to update.
-|   ├── metric_calculator.py: Base code for performance metric calculation
-|   ├── script.py: Used to generate tiled videos
+└── src        
+|   ├── GT                          : StrongSORT-Yolo codebase
+|   ├── calibrate.py                : For TileClipper calibration
+|   ├── capture.sh                  : Live tiled video encoding from camera 
+|   ├── detect_for_groundtruth.py   : Generate labels/GT using  Yolov5x
+|   ├── get_results.ipynb           : Generates all plots.
+|   ├── live_client.py              : Camera-side code during live experiment
+|   ├── live_server.py              : Server-side code during live experiment
+|   ├── metric_calculator.py        : Base code for performance metric calculation
+|   ├── tileClipper.py              : TileClipper's source code.
+|   ├── ratios_withVideoName.pkl
 |   ├── requirements.txt
-|   ├── serverCode.py: Need to fix. Old codebase for server.
-|   ├── tileClipper.py: TileClipper source code.
 |
-└── utils: Has addon scripts and codes.    
+└── utils                           : Has addon scripts and codes.    
 ```
 
 ### 2) Dependencies
