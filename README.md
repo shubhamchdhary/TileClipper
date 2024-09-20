@@ -1,6 +1,6 @@
 # TileClipper
 ## Introduction
-This repository contains codes/artifacts for the paper "TileClipper: Lightweight Selection of Regions of Interest from Videos for Traffic Surveillance", published at USENIX Annual Technical Conference (ATC) 2024. TileClipper is a system that utilizes tile sampling to substantially reduce bandwidth consumption by selecting spatial regions (tiles) of interest for further analysis at the server. This repository has been evaluated by the Artifact Evaluation Committee of ATC and certified as reproducible.
+This repository contains codes/artifacts for the paper ["TileClipper: Lightweight Selection of Regions of Interest from Videos for Traffic Surveillance"](https://www.usenix.org/conference/atc24/presentation/chaudhary), published at USENIX Annual Technical Conference (ATC) 2024. TileClipper is a system that utilizes tile sampling to substantially reduce bandwidth consumption by selecting spatial regions (tiles) of interest for further analysis at the server. This repository has been evaluated by the Artifact Evaluation Committee of ATC and certified as reproducible.
 ![Before Tile Pruning](assets/UnremovedTileFrameSnip.png) | ![After Tile Pruning](assets/tileRemovedFrameSnip1.png)
 :--:| :--:
 **Before Tile Pruning**| **After Tile Pruning**
