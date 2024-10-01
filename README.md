@@ -66,7 +66,7 @@ $> source env/bin/activate                       # for bash
 ```
 
 ### 4) Downloading Dataset
-Download the dataset (.zip file approximately 38G) available on [Zenodo](https://doi.org/10.5281/zenodo.11179900). Unzip the compressed file in the current directory. Once done, there should be a `videos/` directory having all the necessary pre-processed datasets to reproduce the results. The extracted folder contains the videos from AICC, DETRAC, and OurRec datasets. Due to privacy concerns, we have not made the Others and Live Deployment videos public. For evaluation on these videos, we've provided serialized pickle files with video filesizes. *NOTE: We have only provided a subset of videos (raw and processed) relevant to TileClipper. The whole dataset can be downloaded from the original source.*
+The dataset is currently available only on request. Please write to shubhamch@iiitd.ac.in in case you need access to the dataset. Note that the bitrates are available as intermediate results.
 
 ### 5) Running TileClipper on a sample video
 TileClipper operates on tiled videos. The `videos/` folder contains a `TestDataset/` folder with a sample video to validate TileClipper. Run TileClipper on it as:
