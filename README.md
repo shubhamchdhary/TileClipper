@@ -66,7 +66,7 @@ $> source env/bin/activate                       # for bash
 ```
 
 ### 4) Downloading Dataset
-The dataset is currently available only on request. Please write to shubhamch@iiitd.ac.in in case you need access to the dataset. Note that the bitrates are available as intermediate results.
+A subset of the dataset is currently available only on request. Please write to shubhamch@iiitd.ac.in in case you need access to the dataset. Note that the bitrates are available as intermediate results.
 
 ### 5) Running TileClipper on a sample video
 TileClipper operates on tiled videos. The `videos/` folder contains a `TestDataset/` folder with a sample video to validate TileClipper. Run TileClipper on it as:
