@@ -52,7 +52,7 @@ This repository contains codes/artifacts for the paper ["TileClipper: Lightweigh
 ```
 
 ### 2) Dependencies
-All the experiments are designed and tested on Ubuntu 20.04 LTS. Use the same OS to reproduce results. For a differnt Linux distribution, change the commands accordingly. The codebase uses FFmepg (v4.2.7), GPAC (v2.2.1), and Kvazaar (v2.0.0) for encoding/manipulating a tiled videos. Install FFmpeg using `sudo apt install ffmpeg`. [Kvazaar](https://github.com/ultravideo/kvazaar) and [GPAC](https://github.com/gpac/gpac/wiki/GPAC-Build-Guide-for-Linux) requires building. Follow the build instructions in their respective repositories. For GPAC, go with a full GPAC build, not the minimal one. Unless otherwise stated, we use Python 3.8 for all the experiments.
+All the experiments are designed and tested on Ubuntu 20.04 LTS. Use the same OS to reproduce results. For a different Linux distribution, change the commands accordingly. The codebase uses FFmepg (v4.2.7), GPAC (v2.2.1), and Kvazaar (v2.0.0) for encoding/manipulating the tiled videos. Install FFmpeg using `sudo apt install ffmpeg`. [Kvazaar](https://github.com/ultravideo/kvazaar) and [GPAC](https://github.com/gpac/gpac/wiki/GPAC-Build-Guide-for-Linux) requires building. Follow the build instructions in their respective repositories. For GPAC, go with a full GPAC build, not the minimal one. Unless otherwise stated, we use Python 3.8 for all the experiments.
 
 ### 3) Creating Python Environment
 ```bash
