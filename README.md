@@ -1,6 +1,6 @@
 # TileClipper
 ## Introduction
-This repository contains codes/artifacts for the paper ["TileClipper: Lightweight Selection of Regions of Interest from Videos for Traffic Surveillance"](https://www.usenix.org/conference/atc24/presentation/chaudhary), published at USENIX Annual Technical Conference (ATC) 2024. TileClipper is a system that utilizes tile sampling to substantially reduce bandwidth consumption by selecting spatial regions (tiles) of interest for further analysis at the server. This repository has been evaluated by the Artifact Evaluation Committee of ATC and certified as reproducible.
+This repository contains codes/artifacts for the paper ["TileClipper: Lightweight Selection of Regions of Interest from Videos for Traffic Surveillance"](https://www.usenix.org/conference/atc24/presentation/chaudhary), published at USENIX Annual Technical Conference (ATC) 2024. TileClipper is a system that utilizes tile sampling to substantially reduce bandwidth consumption by selecting spatial regions (tiles) of interest for further analysis at the server. This repository has been evaluated by the Artifact Evaluation Committee of ATC and certified as reproducible. Please write to shubhamch@iiitd.ac.in for any queries/doubts.
 ![Before Tile Pruning](assets/UnremovedTileFrameSnip.png) | ![After Tile Pruning](assets/tileRemovedFrameSnip1.png)
 :--:| :--:
 **Before Tile Pruning**| **After Tile Pruning**
@@ -66,7 +66,7 @@ $> source env/bin/activate                       # for bash
 ```
 
 ### 4) Downloading Dataset
-A subset of the dataset is currently available only on request. Please write to shubhamch@iiitd.ac.in in case you need access to the dataset. Note that the bitrates are available as intermediate results.
+Note that only the video bitrates are available as intermediate results. You can generate you own tiled videos using the codes discussed in Section "Tile Encoding".
 
 ### 5) Running TileClipper on a sample video
 TileClipper operates on tiled videos. The `videos/` folder contains a `TestDataset/` folder with a sample video to validate TileClipper. Run TileClipper on it as:
