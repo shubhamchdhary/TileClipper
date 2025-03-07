@@ -147,7 +147,7 @@ Follow this [README](baselines/README.md).
 ## Citing TileClipper
 
 ```bibtex
-@inproceedings {298605,
+@inproceedings {tileClipper,
 author = {Shubham Chaudhary and Aryan Taneja and Anjali Singh and Purbasha Roy and Sohum Sikdar and Mukulika Maity and Arani Bhattacharya},
 title = {TileClipper: Lightweight Selection of Regions of Interest from Videos for Traffic Surveillance},
 booktitle = {2024 USENIX Annual Technical Conference (USENIX ATC 24)},
