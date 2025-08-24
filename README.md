@@ -52,7 +52,7 @@ This repository contains codes/artifacts for the paper ["TileClipper: Lightweigh
 ```
 
 ### 2) Dependencies
-All the experiments are designed and tested on Ubuntu 20.04 LTS. Use the same OS to reproduce results. For a different Linux distribution, change the commands accordingly. The codebase uses FFmepg (v4.2.7), GPAC (v2.2.1), and Kvazaar (v2.0.0) for encoding/manipulating the tiled videos. Install FFmpeg using `sudo apt install ffmpeg`. [Kvazaar](https://github.com/ultravideo/kvazaar) and [GPAC](https://github.com/gpac/gpac/wiki/GPAC-Build-Guide-for-Linux) requires building. Follow the build instructions in their respective repositories. For GPAC, go with a full GPAC build, not the minimal one. Unless otherwise stated, we use Python 3.8 for all the experiments.
+All the experiments are designed and tested on Ubuntu 20.04 LTS. Use the same OS to reproduce results. For a different Linux distribution, change the commands accordingly. The codebase uses FFmpeg (v4.2.7), GPAC (v2.2.1), and Kvazaar (v2.0.0) for encoding/manipulating the tiled videos. Install FFmpeg using `sudo apt install ffmpeg`. [Kvazaar](https://github.com/ultravideo/kvazaar) and [GPAC](https://github.com/gpac/gpac/wiki/GPAC-Build-Guide-for-Linux) requires building. Follow the build instructions in their respective repositories. For GPAC, go with a full GPAC build, not the minimal one. Unless otherwise stated, we use Python 3.8 for all the experiments.
 
 ### 3) Creating Python Environment
 ```bash
@@ -66,15 +66,15 @@ $> source env/bin/activate                       # for bash
 ```
 
 ### 4) Downloading Dataset
-Note that only the video bitrates are available as intermediate results. You can generate you own tiled videos using the codes discussed in Section "Tile Encoding".
+Note that only the video bitrates are available as intermediate results. You can generate your own tiled videos using the codes discussed in the Section "Tile Encoding".
 
 ### 5) Running TileClipper on a sample video
-TileClipper operates on tiled videos. The `videos/` folder contains a `TestDataset/` folder with a sample video to validate TileClipper. Run TileClipper on it as:
+TileClipper operates on tiled videos. We provide a sample dataset to run TileClipper for testing purposes. Create `videos/tiled_4x4_mp4` folder at the root directory of this repo. Download the [sample tiled video](https://drive.google.com/drive/folders/1TdPRU8VXY7isfSQ_TO37ZHQsIKcBVPKh?usp=sharing) and move the `MVI_40211` folder inside `BeforeTileRemoval/` to the `videos/tiled_4x4_mp4/` directory. Run TileClipper on it as:
 
 ```bash
-(env) $> python3 src/tileClipper.py --tiled-video-dir videos/TestDataset/tiled_4x4_mp4/AITr1cam10 --percentile-array-filename assets/F2s/f2s_AITr1cam10_cluster10.pkl  --cluster-indices-file assets/F2s/AITr1cam10_cluster_indices.pkl --gamma 1.75
+(env) $> python3 src/tileClipper.py --tiled-video-dir videos/tiled_4x4_mp4/MVI_40211 --percentile-array-filename assets/F2s/f2s_MVI_40211_cluster10.pkl  --cluster-indices-file assets/F2s/MVI_40211_cluster_indices.pkl --gamma 1.75
 ```
-Once run, you'll find a `removedTileMp4/` folder inside `videos/TestDataset/` directory. It contains the segmented tiled video with pruned tiles. You can play these using GPAC as `gpac -play video.mp4`. Other video players like VLC cannot decode tiled videos.
+Once run, you'll find a `removedTileMp4/` folder inside `videos/` directory. It contains the segmented tiled video with pruned tiles. You can play these using GPAC as `gpac -play video.mp4`. Other video players, like VLC, cannot decode tiled videos.
 
 Note that the above execution assumes that the calibration is already done to get the percentile and cluster files. To run calibration on a video, use `calibrate.py` as:
 ```bash
@@ -84,7 +84,7 @@ It'll create an `F2s/` folder inside `assets/` with the pickle files with the vi
 
 ### 6) Reproducing results
 To quickly reproduce the results, the necessary groundtruths, labels, and processed files are already placed inside the `videos/` and `baselines/` folders.
-Utilize the `src/get_results.ipynb` notebook file to generate the plots. Note this notebook file must be run locally, not on Google Colab, as it parses the dataset to generate results. The `get_results.ipynb` file can be run inside VS Code IDE or Jupyter Notebook.
+Utilize the `src/get_results.ipynb` notebook file to generate the plots. Note that this notebook file must be run locally, not on Google Colab, as it parses the dataset to generate results. The `get_results.ipynb` file can be run inside the VS Code IDE or Jupyter Notebook.
 
 ## Running Experiments
 Caveat: Running the experiments below overwrites the files inside `videos/`. 
@@ -100,7 +100,7 @@ Use `script.py` to encode a video as:
 This will generate segmented tiled videos inside `tile_4x4_mp4/` folder within the dataset folder. Encoding is a time-consuming process that requires a large amount of space because it extracts raw videos. We've provided the tile-encoded videos in `videos/` to save time.
 
 ### 2) Generating Tile-level Groundtruths
-For calibration, we require groundtruths (GT), which specifies the tiles with relevant objects. We use StrongSORT-Yolo to generate these GTs. The instructions are in this [README](src/GT/README.md).
+For calibration, we require groundtruths (GT), which specify the tiles with relevant objects. We use StrongSORT-Yolo to generate these GTs. The instructions are in this [README](src/GT/README.md).
 
 ### 3) Running TileClipper
 #### a) Calibration 
